@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Invoice_Header_Table_Handover {
+public class InvoiceHeaderTableHandover {
 	
 	@Id
 	public long invoiceId;

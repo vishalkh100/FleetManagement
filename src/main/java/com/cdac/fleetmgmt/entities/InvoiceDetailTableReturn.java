@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Invoice_Detail_Table_Return {
+public class InvoiceDetailTableReturn {
 	
 	public long invdtlId;
 	
