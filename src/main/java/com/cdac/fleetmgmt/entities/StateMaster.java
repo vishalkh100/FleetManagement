@@ -2,7 +2,7 @@ package com.cdac.fleetmgmt.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 @Entity
-public class State_master {
+public class StateMaster {
 	
 	@Id
 	public long stateId;
