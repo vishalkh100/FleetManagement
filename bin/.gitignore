@@ -33,9 +33,3 @@ build/
 .vscode/
 .mvn/wrapper/maven-wrapper.jar
 .mvn/wrapper/maven-wrapper.properties
-bin/mvnw
-bin/mvnw.cmd
-bin/pom.xml
-bin/src/main/java/com/cdac/fleetmgmt/FleetManagementApplication.class
-bin/src/main/resources/application.properties
-bin/src/test/java/com/cdac/fleetmgmt/FleetManagementApplicationTests.class
