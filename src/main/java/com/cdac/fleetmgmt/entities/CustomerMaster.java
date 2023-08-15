@@ -2,12 +2,15 @@ package com.cdac.fleetmgmt.entities;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class CustomerMaster {
 	@Id
-    @GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public long customerId;
 	public String firstName;
 	public String lastName;
@@ -25,7 +28,7 @@ public class CustomerMaster {
 	public String passportNumber;
 	public String passportIssuedBy;
 	public Date passportValidUpto;
-	public String dob;
+	public Date dob;
 	
 	public long getCustomerId() {
 		return customerId;
@@ -129,10 +132,10 @@ public class CustomerMaster {
 	public void setPassportValidUpto(Date passportValidUpto) {
 		this.passportValidUpto = passportValidUpto;
 	}
-	public String getDob() {
+	public Date getDob() {
 		return dob;
 	}
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 	@Override
