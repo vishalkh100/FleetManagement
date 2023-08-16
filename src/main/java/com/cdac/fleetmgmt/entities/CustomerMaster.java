@@ -29,6 +29,7 @@ public class CustomerMaster {
 	public String passportIssuedBy;
 	public Date passportValidUpto;
 	public Date dob;
+	public String password;
 	
 	public long getCustomerId() {
 		return customerId;
@@ -138,6 +139,15 @@ public class CustomerMaster {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
 	@Override
 	public String toString() {
 		return "CustomerMaster [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
@@ -145,9 +155,17 @@ public class CustomerMaster {
 				+ pin + ", phone=" + phone + ", email=" + email + ", creditCardType=" + creditCardType
 				+ ", drivingLicence=" + drivingLicence + ", dlIssuedBy=" + dlIssuedBy + ", dlValidThrough="
 				+ dlValidThrough + ", passportNumber=" + passportNumber + ", passportIssuedBy=" + passportIssuedBy
-				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + "]";
+				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + ", password=" + password
+				+ ", getCustomerId()=" + getCustomerId() + ", getFirstName()=" + getFirstName() + ", getLastName()="
+				+ getLastName() + ", getAddress1()=" + getAddress1() + ", getAddress2()=" + getAddress2()
+				+ ", getCity()=" + getCity() + ", getState()=" + getState() + ", getPin()=" + getPin() + ", getPhone()="
+				+ getPhone() + ", getEmail()=" + getEmail() + ", getCreditCardType()=" + getCreditCardType()
+				+ ", getDrivingLicence()=" + getDrivingLicence() + ", getDlIssuedBy()=" + getDlIssuedBy()
+				+ ", getDlValidThrough()=" + getDlValidThrough() + ", getPassportNumber()=" + getPassportNumber()
+				+ ", getPassportIssuedBy()=" + getPassportIssuedBy() + ", getPassportValidUpto()="
+				+ getPassportValidUpto() + ", getDob()=" + getDob() + ", getPassword()=" + getPassword()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
-	
-	
 	
 }
