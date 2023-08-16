@@ -47,7 +47,7 @@ public class CustomerMasterService {
 	}
 	
 	public CustomerMaster getCustomerById(Long id) {
-		CustomerMaster customerFound = customerMasterRepository.getOne(id)
+		CustomerMaster customerFound = customerMasterRepository.getOne(id);
 		return customerFound;
 
 	}
