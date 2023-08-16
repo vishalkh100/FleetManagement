@@ -19,8 +19,9 @@ public class LoginController {
 	
 	@PostMapping("/user")
 	public String login(@RequestBody UserLoginDTO user) {
-		System.out.println(user);
+		
 		CustomerMaster foundUser = loginService.findByEmail(user.getUsername());
+		
 		if(foundUser!=null) {
 			if(foundUser.getPassword().equals(user.getPassword())) {
 				return "Success";
