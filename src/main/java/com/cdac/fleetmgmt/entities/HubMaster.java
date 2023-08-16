@@ -1,7 +1,10 @@
 package com.cdac.fleetmgmt.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class HubMaster 
@@ -12,7 +15,7 @@ public class HubMaster
 	
 	public String hubAddress;
 	
-	public long cityId;
+	public CityMaster cityId;
 	
 	public long stateId;
 	
@@ -49,11 +52,13 @@ public class HubMaster
 		this.hubAddress = hubAddress;
 	}
 
-	public long getCityId() {
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="city_Id", referencedColumnName="cityId")
+	public CityMaster getCityId() {
 		return cityId;
 	}
 
-	public void setCityId(long cityId) {
+	public void setCityId(CityMaster cityId) {
 		this.cityId = cityId;
 	}
 
