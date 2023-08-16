@@ -2,15 +2,20 @@ package com.cdac.fleetmgmt.entities;
 
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class CarMaster {
 
 	@Id
 	public long carId;
-	public long carTypeId;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="carTypeId", referencedColumnName="carTypeId")
+	public CarTypeMaster carTypeId;
 	public double carFuelCapacity;
 	public long hubId;
 	public boolean isAvailable;
@@ -22,12 +27,14 @@ public class CarMaster {
 	public void setCarId(long carId) {
 		this.carId = carId;
 	}
-	public long getCarTypeId() {
+	public CarTypeMaster getCarTypeId() {
 		return carTypeId;
 	}
-	public void setCarTypeId(long carTypeId) {
+	
+	public void setCarTypeId(CarTypeMaster carTypeId) {
 		this.carTypeId = carTypeId;
 	}
+	
 	public double getCarFuelCapacity() {
 		return carFuelCapacity;
 	}
