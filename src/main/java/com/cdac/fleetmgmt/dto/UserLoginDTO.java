@@ -2,14 +2,14 @@ package com.cdac.fleetmgmt.dto;
 
 public class UserLoginDTO {
 	
-	public String username;
+	public String email;
 	public String password;
 	
 	public String getUsername() {
-		return username;
+		return email;
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		this.email = username;
 	}
 	public String getPassword() {
 		return password;
@@ -17,6 +17,9 @@ public class UserLoginDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	@Override
+	public String toString() {
+		return "UserLoginDTO [username=" + email + ", password=" + password + "]";
+	}
 	
 }

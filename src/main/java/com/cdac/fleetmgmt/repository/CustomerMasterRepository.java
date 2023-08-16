@@ -11,4 +11,5 @@ import com.cdac.fleetmgmt.entities.CustomerMaster;
 public interface CustomerMasterRepository extends JpaRepository<CustomerMaster, Long> {
 	public List<CustomerMaster> findAll();
 	public CustomerMaster save(CustomerMaster customer);
+	public CustomerMaster findByEmail(String Email);
 }
