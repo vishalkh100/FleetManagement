@@ -10,8 +10,8 @@ import jakarta.persistence.Id;
 @Entity
 public class CustomerMaster {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	public long customerId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Long customerId;
 	public String firstName;
 	public String lastName;
 	public String address1;

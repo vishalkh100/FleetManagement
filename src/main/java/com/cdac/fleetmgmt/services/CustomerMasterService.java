@@ -1,0 +1,87 @@
+package com.cdac.fleetmgmt.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cdac.fleetmgmt.CustomerMasterDTO;
+import com.cdac.fleetmgmt.entities.CustomerMaster;
+import com.cdac.fleetmgmt.repository.CustomerMasterRepository;
+
+@Service
+public class CustomerMasterService {
+	
+	@Autowired
+	CustomerMasterRepository customerMasterRepository;
+	
+	public List<CustomerMaster> getAllCustomer() {
+		List<CustomerMaster> returnList = new ArrayList<>();
+		
+		returnList = customerMasterRepository.findAll();
+		
+		return returnList;
+	}
+	
+	public String addCustomer(CustomerMaster customer) {
+		
+		CustomerMaster cust = customerMasterRepository.save(customer);
+		
+		if(cust==null) {
+			return "Error";
+		} else {
+			 return "Success";
+		}
+
+	}
+	
+	public String deleteCustomerById(Long id) {
+		CustomerMaster customerFound = customerMasterRepository.getById(id);
+		if(customerFound==null) {
+			return "Error";
+		} else {
+			customerMasterRepository.delete(customerFound);
+			return "Success";
+		}
+	}
+	
+	public CustomerMaster getCustomerById(Long id) {
+		CustomerMaster customerFound = customerMasterRepository.getOne(id)
+		return customerFound;
+
+	}
+	
+	public String updateCustomer(CustomerMaster customer) {
+		
+		CustomerMaster customerFound = customerMasterRepository.getById(customer.getCustomerId());
+		
+		customerFound.setAddress1(customer.getAddress1());
+		customerFound.setAddress2(customer.getAddress2());
+		customerFound.setCity(customer.getCity());
+		customerFound.setCreditCardType(customer.getCreditCardType());
+		customerFound.setDrivingLicence(customer.getDrivingLicence());
+		customerFound.setDlIssuedBy(customer.getDlIssuedBy());
+		customerFound.setDlValidThrough(customer.getDlValidThrough());
+		customerFound.setPassportNumber(customer.getPassportNumber());
+		customerFound.setPassportIssuedBy(customer.getPassportIssuedBy());
+		customerFound.setPassportValidUpto(customer.getPassportValidUpto());
+		customerFound.setDob(customer.getDob());
+		customerFound.setPhone(customer.getPhone());
+		customerFound.setPin(customer.getPin());
+		customerFound.setState(customer.getState());
+		customerFound.setEmail(customer.getEmail());
+		customerFound.setFirstName(customer.getFirstName());
+		customerFound.setLastName(customer.getLastName());
+		
+		CustomerMaster cust = customerMasterRepository.save(customerFound);
+		
+		if(cust==null) {
+			return "Error";
+		} else {
+			 return "Success";
+		}
+
+	}
+	
+}
