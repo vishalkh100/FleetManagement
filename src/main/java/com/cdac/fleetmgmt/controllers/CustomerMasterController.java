@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cdac.fleetmgmt.CustomerMasterDTO;
 import com.cdac.fleetmgmt.entities.*;
 import com.cdac.fleetmgmt.services.CustomerMasterService;
 
@@ -51,9 +49,8 @@ public class CustomerMasterController {
 	}
 	
 	@DeleteMapping("/deleteCustomer/{id}")
-	public String deleteCustomer(@RequestParam Long id) {
+	public String deleteCustomer(@PathVariable Long id) {
 		return customerMasterService.deleteCustomerById(id);
 	}
 			
-	
 }
