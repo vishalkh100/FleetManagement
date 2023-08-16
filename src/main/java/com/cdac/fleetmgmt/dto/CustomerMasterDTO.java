@@ -1,4 +1,4 @@
-package com.cdac.fleetmgmt;
+package com.cdac.fleetmgmt.dto;
 
 import java.util.Date;
 
