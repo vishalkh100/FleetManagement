@@ -1,6 +1,7 @@
 package com.cdac.fleetmgmt.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,18 +19,10 @@ public class LoginController {
 	LoginService loginService;
 	
 	@PostMapping("/user")
-	public String login(@RequestBody UserLoginDTO user) {
+	public ResponseEntity<CustomerMaster> login(@RequestBody UserLoginDTO user) {
 		
-		CustomerMaster foundUser = loginService.findByEmail(user.getUsername());
-		
-		if(foundUser!=null) {
-			if(foundUser.getPassword().equals(user.getPassword())) {
-				return "Success";
-			} else {
-				return "Wrong Password";
-			}
-		} else {
-			return "Error: User Not Found";
-		}
+		ResponseEntity<CustomerMaster> customer = loginService.login(user);
+		return customer;
 	}
+	
 }

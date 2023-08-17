@@ -1,18 +1,10 @@
-package com.cdac.fleetmgmt.entities;
+package com.cdac.fleetmgmt.dto;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class CustomerMaster {
+public class RegistrationDTO {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Long customerId;
+	//public Long customerId;
 	public String firstName;
 	public String lastName;
 	public String address1;
@@ -22,6 +14,7 @@ public class CustomerMaster {
 	public String pin;
 	public String phone;
 	public String email;
+	public String carTypeId;
 	public String creditCardType;
 	public String drivingLicence;
 	public String dlIssuedBy;
@@ -30,13 +23,8 @@ public class CustomerMaster {
 	public String passportIssuedBy;
 	public Date passportValidUpto;
 	public Date dob;
+	public String password;
 	
-	public long getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -139,26 +127,27 @@ public class CustomerMaster {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public void setCustomerId(Long customerId) {
-		this.customerId = customerId;
+	public String getPassword() {
+		return password;
 	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getCarTypeId() {
+		return carTypeId;
+	}
+	public void setCarTypeId(String carTypeId) {
+		this.carTypeId = carTypeId;
+	}
+	
 	@Override
 	public String toString() {
-		return "CustomerMaster [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
+		return "RegistrationDTO [firstName=" + firstName + ", lastName=" + lastName
 				+ ", address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state=" + state + ", pin="
 				+ pin + ", phone=" + phone + ", email=" + email + ", creditCardType=" + creditCardType
 				+ ", drivingLicence=" + drivingLicence + ", dlIssuedBy=" + dlIssuedBy + ", dlValidThrough="
 				+ dlValidThrough + ", passportNumber=" + passportNumber + ", passportIssuedBy=" + passportIssuedBy
-				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + ", getCustomerId()=" + getCustomerId()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getAddress1()="
-				+ getAddress1() + ", getAddress2()=" + getAddress2() + ", getCity()=" + getCity() + ", getState()="
-				+ getState() + ", getPin()=" + getPin() + ", getPhone()=" + getPhone() + ", getEmail()=" + getEmail()
-				+ ", getCreditCardType()=" + getCreditCardType() + ", getDrivingLicence()=" + getDrivingLicence()
-				+ ", getDlIssuedBy()=" + getDlIssuedBy() + ", getDlValidThrough()=" + getDlValidThrough()
-				+ ", getPassportNumber()=" + getPassportNumber() + ", getPassportIssuedBy()=" + getPassportIssuedBy()
-				+ ", getPassportValidUpto()=" + getPassportValidUpto() + ", getDob()=" + getDob() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + ", password=" + password + "]";
 	}
-	
-	
+
 }

@@ -1,7 +1,5 @@
 package com.cdac.fleetmgmt.services;
 
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,19 +24,18 @@ public class CustomerMasterService {
 	}
 	
 	public String addCustomer(CustomerMaster customer) {
-		CustomerMaster cust;
-		try {
-			cust = customerMasterRepository.save(customer);
-		} catch (Exception e) {
-			return e.getCause().toString();
-		}
-		
+		CustomerMaster cust = customerMasterRepository.save(customer);
+
 		if(cust==null) {
 			return "Error";
 		} else {
 			 return "Success";
 		}
 
+	}
+	
+	public CustomerMaster registerCustomer(CustomerMaster customer) {
+		return customerMasterRepository.save(customer);
 	}
 	
 	public String deleteCustomerById(Long id) {

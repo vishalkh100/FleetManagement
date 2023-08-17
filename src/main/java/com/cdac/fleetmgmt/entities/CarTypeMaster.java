@@ -1,12 +1,15 @@
 package com.cdac.fleetmgmt.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class CarTypeMaster {
 
 	@Id
+ 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long carTypeId;
 	public String carTyepName;
 	public double dailyRate;

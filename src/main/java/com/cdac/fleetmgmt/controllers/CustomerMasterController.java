@@ -41,12 +41,7 @@ public class CustomerMasterController {
 	@PostMapping("/addCustomer")
 	public String addCustomer(@RequestBody CustomerMaster customer) {
 		String result = customerMasterService.addCustomer(customer);
-		if(result.contains("ConstraintViolationException")) {
-			return "Email is already registered";
-		} else {
-			return "User Registered Successfully";
-		}
-		
+		return result;
 	}
 	
 	@PutMapping("/updateCustomer")

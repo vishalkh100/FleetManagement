@@ -1,37 +1,46 @@
 package com.cdac.fleetmgmt.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class MembershipRegistration {
-	 public long memregId;
-     public long custId;
-     public long carTypeId;
-     public String password;
-     
-     @Override
-	public String toString() {
-		return "Membership_Registration_Table [memregId=" + memregId + ", custId=" + custId + ", carTypeId=" + carTypeId
-				+ ", password=" + password + "]";
-	}
+	 
 	@Id
-	public long getMemregId() {
-		return memregId;
+ 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public long memRegId;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="customerId", referencedColumnName="customerId")
+    public CustomerMaster customerId;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="carTypeId", referencedColumnName="carTypeId")
+    public CarTypeMaster carTypeId;
+    public String password;
+    
+	public long getMemRegId() {
+		return memRegId;
 	}
-	public void setMemregId(long memregId) {
-		this.memregId = memregId;
+	public void setMemRegId(long memRegId) {
+		this.memRegId = memRegId;
 	}
-	public long getCustId() {
-		return custId;
+	public CustomerMaster getCustomer_id() {
+		return customerId;
 	}
-	public void setCustId(long custId) {
-		this.custId = custId;
+	public void setCustomer_id(CustomerMaster customerId) {
+		this.customerId = customerId;
 	}
-	public long getCarTypeId() {
+	public CarTypeMaster getCarTypeId() {
 		return carTypeId;
 	}
-	public void setCarTypeId(long carTypeId) {
+	public void setCarTypeId(CarTypeMaster carTypeId) {
 		this.carTypeId = carTypeId;
 	}
 	public String getPassword() {
@@ -39,6 +48,12 @@ public class MembershipRegistration {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		return "MembershipRegistration [memRegId=" + memRegId + ", customerId=" + customerId + ", carTypeId="
+				+ carTypeId + ", password=" + password + "]";
 	}
      
 }
