@@ -1,6 +1,5 @@
 package com.cdac.fleetmgmt.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,6 @@ public class HubMasterController {
 	
 	@GetMapping("/getAllHub")
 	public List<HubMaster> getAllHubs(){
-		List<HubMaster> hublist = new ArrayList<>();
-		hublist = hubmasterService.getAllHub();
-		return hublist;
+		return hubmasterService.getAllHub();
 	}
 }

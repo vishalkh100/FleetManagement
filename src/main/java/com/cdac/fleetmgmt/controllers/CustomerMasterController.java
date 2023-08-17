@@ -1,6 +1,5 @@
 package com.cdac.fleetmgmt.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cdac.fleetmgmt.entities.*;
+import com.cdac.fleetmgmt.entities.CustomerMaster;
 import com.cdac.fleetmgmt.services.CustomerMasterService;
 
 @RestController
@@ -25,11 +24,7 @@ public class CustomerMasterController {
 	
 	@GetMapping("/getAllCustomer")
 	public List<CustomerMaster> getAllCustomers() {
-		List<CustomerMaster> returnList = new ArrayList<>();
-		
-		returnList = customerMasterService.getAllCustomer();
-		
-		return returnList;
+		return customerMasterService.getAllCustomer();
 	}
 	
 	@GetMapping("/{id}")
@@ -40,8 +35,7 @@ public class CustomerMasterController {
 	
 	@PostMapping("/addCustomer")
 	public String addCustomer(@RequestBody CustomerMaster customer) {
-		String result = customerMasterService.addCustomer(customer);
-		return result;
+		return customerMasterService.addCustomer(customer);
 	}
 	
 	@PutMapping("/updateCustomer")

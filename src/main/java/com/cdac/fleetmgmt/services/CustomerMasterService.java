@@ -17,9 +17,7 @@ public class CustomerMasterService {
 	
 	public List<CustomerMaster> getAllCustomer() {
 		List<CustomerMaster> returnList = new ArrayList<>();
-		
 		returnList = customerMasterRepository.findAll();
-		
 		return returnList;
 	}
 	

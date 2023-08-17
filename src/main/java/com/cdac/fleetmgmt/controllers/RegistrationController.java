@@ -20,9 +20,7 @@ public class RegistrationController {
 	
 	@PostMapping("/")
 	public ResponseEntity<ResponseObjectDTO> registerCustomer(@RequestBody RegistrationDTO registration) {
-		
 		return registrationService.addMembership(registration);
-		
 	}
 	
 }
