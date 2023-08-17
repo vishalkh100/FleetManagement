@@ -26,6 +26,7 @@ public class MembershipRegistrationService {
 	
 	
 	
+	@SuppressWarnings("deprecation")
 	public ResponseEntity<ResponseObjectDTO> addMembership(RegistrationDTO registration) {
 		
 		ResponseObjectDTO response = new ResponseObjectDTO();

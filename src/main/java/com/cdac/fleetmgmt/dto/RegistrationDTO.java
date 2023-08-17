@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class RegistrationDTO {
 	
-	//public Long customerId;
 	public String firstName;
 	public String lastName;
 	public String address1;

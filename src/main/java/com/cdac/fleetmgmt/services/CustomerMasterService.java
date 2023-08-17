@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.cdac.fleetmgmt.entities.CustomerMaster;
@@ -15,10 +17,14 @@ public class CustomerMasterService {
 	@Autowired
 	CustomerMasterRepository customerMasterRepository;
 	
-	public List<CustomerMaster> getAllCustomer() {
+	public ResponseEntity<List<CustomerMaster>> getAllCustomer() {
 		List<CustomerMaster> returnList = new ArrayList<>();
 		returnList = customerMasterRepository.findAll();
-		return returnList;
+		if(returnList!=null) {
+			return new ResponseEntity<>(returnList, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(returnList, HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	public String addCustomer(CustomerMaster customer) {
@@ -37,6 +43,7 @@ public class CustomerMasterService {
 	}
 	
 	public String deleteCustomerById(Long id) {
+		@SuppressWarnings("deprecation")
 		CustomerMaster customerFound = customerMasterRepository.getById(id);
 		if(customerFound==null) {
 			return "Error";
@@ -54,6 +61,7 @@ public class CustomerMasterService {
 	
 	public String updateCustomer(CustomerMaster customer) {
 		
+		@SuppressWarnings("deprecation")
 		CustomerMaster customerFound = customerMasterRepository.getById(customer.getCustomerId());
 		
 		customerFound.setAddress1(customer.getAddress1());
