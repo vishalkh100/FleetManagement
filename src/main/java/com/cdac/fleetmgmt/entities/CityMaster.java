@@ -12,10 +12,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 @Entity
 public class CityMaster implements Serializable{
-	private static final long serialVersionUId = 1L;
-	
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long cityId;
 	
 	private String cityName;
