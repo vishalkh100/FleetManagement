@@ -1,5 +1,5 @@
 package com.cdac.fleetmgmt.entities;
-import java.io.Serializable;
+
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -7,9 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 @Entity
-public class StateMaster implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+public class StateMaster {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long stateId;
@@ -38,26 +37,5 @@ public class StateMaster implements Serializable {
 				+ ", getStateName()=" + getStateName() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(stateId, stateName);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		StateMaster other = (StateMaster) obj;
-		return stateId == other.stateId && Objects.equals(stateName, other.stateName);
-	}
-
-	
-	
-	
 
 }

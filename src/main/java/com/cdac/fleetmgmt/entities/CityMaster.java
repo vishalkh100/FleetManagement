@@ -1,6 +1,6 @@
 package com.cdac.fleetmgmt.entities;
 
-import java.io.Serializable;
+
 import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
@@ -11,9 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 @Entity
-public class CityMaster implements Serializable{
-	private static final long serialVersionUID = 1L;
-
+public class CityMaster {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long cityId;
