@@ -14,14 +14,9 @@ public class AddOnMaster
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     public long addOnId;
-	
-	
 	public String addOnName;
-	
 	public double addOnRate;
-	
 	public Date rateValidity;
-	
 	public long carId;
 	
 	public long getAddOnId() {
