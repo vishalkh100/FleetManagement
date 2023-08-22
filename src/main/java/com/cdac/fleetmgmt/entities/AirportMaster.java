@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class AirportMaster {
+public class AirportMaster  {
 	@Id
 	public long AirporId;
 	public String airportName;
