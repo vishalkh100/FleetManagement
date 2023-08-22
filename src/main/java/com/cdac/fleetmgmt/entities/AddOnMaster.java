@@ -3,6 +3,8 @@ package com.cdac.fleetmgmt.entities;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 
@@ -10,7 +12,9 @@ import jakarta.persistence.Id;
 public class AddOnMaster 
 {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     public long addOnId;
+	
 	
 	public String addOnName;
 	

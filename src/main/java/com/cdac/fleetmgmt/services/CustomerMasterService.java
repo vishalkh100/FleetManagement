@@ -10,16 +10,24 @@ import org.springframework.stereotype.Service;
 
 import com.cdac.fleetmgmt.entities.CustomerMaster;
 import com.cdac.fleetmgmt.repository.CustomerMasterRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Service
+import jakarta.transaction.Transactional;
+
+@Service(value = "CustomerService")
 public class CustomerMasterService {
 	
 	@Autowired
 	CustomerMasterRepository customerMasterRepository;
 	
+	@Autowired
+	ObjectMapper mapper;
+	
 	public ResponseEntity<List<CustomerMaster>> getAllCustomer() {
 		List<CustomerMaster> returnList = new ArrayList<>();
+		
 		returnList = customerMasterRepository.findAll();
+		
 		if(returnList!=null) {
 			return new ResponseEntity<>(returnList, HttpStatus.OK);
 		} else {
@@ -28,6 +36,7 @@ public class CustomerMasterService {
 	}
 	
 	public String addCustomer(CustomerMaster customer) {
+		
 		CustomerMaster cust = customerMasterRepository.save(customer);
 
 		if(cust==null) {
@@ -61,8 +70,8 @@ public class CustomerMasterService {
 	
 	public String updateCustomer(CustomerMaster customer) {
 		
-		@SuppressWarnings("deprecation")
-		CustomerMaster customerFound = customerMasterRepository.getById(customer.getCustomerId());
+		
+		CustomerMaster customerFound = customerMasterRepository.getReferenceById(customer.getCustomerId());
 		
 		customerFound.setAddress1(customer.getAddress1());
 		customerFound.setAddress2(customer.getAddress2());

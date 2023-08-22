@@ -1,9 +1,12 @@
 package com.cdac.fleetmgmt.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class RegistrationDTO {
+public class RegistrationDTO implements Serializable{
 	
+	
+	private static final long serialVersionUID = 1L;
 	public String firstName;
 	public String lastName;
 	public String address1;
@@ -148,5 +151,7 @@ public class RegistrationDTO {
 				+ dlValidThrough + ", passportNumber=" + passportNumber + ", passportIssuedBy=" + passportIssuedBy
 				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + ", password=" + password + "]";
 	}
+	
+	
 
 }
