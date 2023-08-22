@@ -1,14 +1,19 @@
 package com.cdac.fleetmgmt.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 @Entity
 public class BookingDetails {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long bookingdtalId;   
 	public long bookingId;
 	public long addonId;
     public double addonRate;
+  
     
 	@Override
 	public String toString() {
