@@ -11,28 +11,34 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class HubMaster implements Serializable
 {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public long hubId;
-	
-	public String hubName;
-	
-	public String hubAddress;
-	
-	public CityMaster cityId;
-	
-	public long stateId;
-	
-	public String hubPhoneNo;
-	
-	public String weekDay;
-	
-	public String openingTime;
 
-	public String closingTime;
+	private long hubId1;
+
+	
+	private String hubName;
+	
+	private String hubAddress;
+	
+	private CityMaster cityId;
+	
+	private long stateId;
+	
+	private String hubPhoneNo;
+	
+	private String weekDay;
+
+	public String openingTime1;
+
+	public String closingTime1;
+
+	private String openingTime;
+	
+	private String closingTime;
+
 
 	@Id
 	public long getHubId() {
@@ -94,26 +100,26 @@ public class HubMaster implements Serializable
 	}
 
 	public String getOpeningTime() {
-		return openingTime;
+		return openingTime1;
 	}
 
 	public void setOpeningTime(String openingTime) {
-		this.openingTime = openingTime;
+		this.openingTime1 = openingTime;
 	}
 
 	public String getClosingTime() {
-		return closingTime;
+		return closingTime1;
 	}
 
 	public void setClosingTime(String closingTime) {
-		this.closingTime = closingTime;
+		this.closingTime1 = closingTime;
 	}
 
 	@Override
 	public String toString() {
 		return "HubMaster [hubId=" + hubId + ", hubName=" + hubName + ", hubAddress=" + hubAddress + ", cityId="
 				+ cityId + ", stateId=" + stateId + ", hubPhoneNo=" + hubPhoneNo + ", weekDay=" + weekDay
-				+ ", openingTime=" + openingTime + ", closingTime=" + closingTime + "]";
+				+ ", openingTime=" + openingTime1 + ", closingTime=" + closingTime1 + "]";
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.cdac.fleetmgmt.entities;
+ package com.cdac.fleetmgmt.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
