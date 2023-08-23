@@ -1,21 +1,18 @@
 package com.cdac.fleetmgmt.entities;
 
-import java.io.Serializable;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class HubMaster implements Serializable
+public class HubMaster
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
+	
 	public long hubId;
 	
 	public String hubName;
@@ -35,6 +32,7 @@ public class HubMaster implements Serializable
 	public String closingTime;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getHubId() {
 		return hubId;
 	}
