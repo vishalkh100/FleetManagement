@@ -24,17 +24,18 @@ public class BookingController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<BookingHeaderReservation> getBookingById(@PathVariable Long id) {
+		// to implement
 		return new ResponseEntity<>(new BookingHeaderReservation(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/")
 	public ResponseEntity<BookingHeaderReservation> addBooking(@RequestBody BookingDTO booking) {
-		//System.out.println(booking);
 		return bookingService.addBooking(booking);
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<BookingHeaderReservation> updateBooking(@RequestBody BookingDTO booking, @PathVariable Long id) {
+		// to implement
 		return new ResponseEntity<>(new BookingHeaderReservation(), HttpStatus.OK);
 	}
 	

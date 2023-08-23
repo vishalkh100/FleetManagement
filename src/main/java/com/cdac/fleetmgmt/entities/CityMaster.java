@@ -70,10 +70,6 @@ public class CityMaster {
 		return cityId == other.cityId && Objects.equals(cityName, other.cityName)
 				&& Objects.equals(stateId, other.stateId);
 	}
-
-	
-	
-	
 	
 }
 

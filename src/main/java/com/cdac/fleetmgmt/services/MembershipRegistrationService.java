@@ -10,7 +10,9 @@ import com.cdac.fleetmgmt.dto.ResponseObjectDTO;
 import com.cdac.fleetmgmt.entities.CustomerMaster;
 import com.cdac.fleetmgmt.entities.MembershipRegistration;
 import com.cdac.fleetmgmt.repository.CarTypeMasterRepository;
+import com.cdac.fleetmgmt.repository.CityMasterRepository;
 import com.cdac.fleetmgmt.repository.MembershipRegistrationRepository;
+import com.cdac.fleetmgmt.repository.StateMasterRepository;
 
 @Service
 public class MembershipRegistrationService {
@@ -24,6 +26,12 @@ public class MembershipRegistrationService {
 	@Autowired
 	CustomerMasterService customerMasterService;
 	
+	@Autowired
+	StateMasterRepository stateMasterRepository;
+	
+	@Autowired
+	CityMasterRepository cityMasterRepository;
+	
 	
 	
 	@SuppressWarnings("deprecation")
@@ -35,7 +43,7 @@ public class MembershipRegistrationService {
 		
 		customer.setAddress1(registration.getAddress1());
 		customer.setAddress2(registration.getAddress2());
-		customer.setCity(registration.getCity());
+		customer.setCityId(cityMasterRepository.findById(Long.valueOf(registration.getCity())).get());
 		customer.setCreditCardType(registration.getCreditCardType());
 		customer.setDrivingLicence(registration.getDrivingLicence());
 		customer.setDlIssuedBy(registration.getDlIssuedBy());
@@ -46,7 +54,7 @@ public class MembershipRegistrationService {
 		customer.setDob(registration.getDob());
 		customer.setPhone(registration.getPhone());
 		customer.setPin(registration.getPin());
-		customer.setState(registration.getState());
+		customer.setStateId(stateMasterRepository.findById(Long.valueOf(registration.getState())).get());
 		customer.setEmail(registration.getEmail());
 		customer.setFirstName(registration.getFirstName());
 		customer.setLastName(registration.getLastName());

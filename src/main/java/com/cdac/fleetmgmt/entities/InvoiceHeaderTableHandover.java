@@ -3,35 +3,43 @@ package com.cdac.fleetmgmt.entities;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class InvoiceHeaderTableHandover {
 	
 	@Id
-	public long invoiceId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long invoiceId;
 	
-	public Date invoiceDate;
+	@Temporal(TemporalType.DATE)
+	private Date invoiceDate;
 	
-	public long bookingId;
+	private long bookingId;
 	
-	public long custId;
+	private long custId;
 	
-	public Date handoverDate;
+	@Temporal(TemporalType.DATE)
+	private Date handoverDate;
 	
-	public long carId;
+	private long carId;
 	
-	public Date returnDate;
+	@Temporal(TemporalType.DATE)
+	private Date returnDate;
 	
-	public double rentalAmt;
+	private double rentalAmt;
 	
-	public double totalAddonAmt;
+	private double totalAddonAmt;
 	
-	public double totalAmt;
+	private double totalAmt;
 	
-	public String customerDetails;
+	private String customerDetails;
 	
-	public double invoiceRate;
+	private double invoiceRate;
 
 	public long getInvoiceId() {
 		return invoiceId;

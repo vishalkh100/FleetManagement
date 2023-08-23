@@ -69,13 +69,12 @@ public class CustomerMasterService {
 	}
 	
 	public String updateCustomer(CustomerMaster customer) {
-		
-		
+
 		CustomerMaster customerFound = customerMasterRepository.getReferenceById(customer.getCustomerId());
 		
 		customerFound.setAddress1(customer.getAddress1());
 		customerFound.setAddress2(customer.getAddress2());
-		customerFound.setCity(customer.getCity());
+		customerFound.setCityId(customer.getCityId());
 		customerFound.setCreditCardType(customer.getCreditCardType());
 		customerFound.setDrivingLicence(customer.getDrivingLicence());
 		customerFound.setDlIssuedBy(customer.getDlIssuedBy());
@@ -86,7 +85,7 @@ public class CustomerMasterService {
 		customerFound.setDob(customer.getDob());
 		customerFound.setPhone(customer.getPhone());
 		customerFound.setPin(customer.getPin());
-		customerFound.setState(customer.getState());
+		customerFound.setStateId(customer.getStateId());
 		customerFound.setEmail(customer.getEmail());
 		customerFound.setFirstName(customer.getFirstName());
 		customerFound.setLastName(customer.getLastName());
@@ -98,7 +97,7 @@ public class CustomerMasterService {
 		} else {
 			 return "Success";
 		}
-
+		
 	}
 	
 }

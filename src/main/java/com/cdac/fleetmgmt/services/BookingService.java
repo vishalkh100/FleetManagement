@@ -51,14 +51,13 @@ public class BookingService {
 		
 		BookingHeaderReservation bookingAdded = bookingRepository.save(bookingToSave);
 		
-		return new ResponseEntity<>(bookingToSave, HttpStatus.CREATED);
+		return new ResponseEntity<>(bookingAdded, HttpStatus.CREATED);
 	}
 	
 	public double calculateAddOnTotal(int[] arr) {
 		double total = 0;
 		
 		for(int i=0; i<arr.length; i++) {
-			double rate = 0;
 			AddOnMaster addOn = addOnRepository.getById(Long.valueOf(arr[i]));
 			total += addOn.getAddOnRate();
 		}

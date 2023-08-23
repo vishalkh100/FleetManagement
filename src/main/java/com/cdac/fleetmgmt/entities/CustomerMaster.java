@@ -1,11 +1,15 @@
 package com.cdac.fleetmgmt.entities;
 
 import java.util.Date;
+import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class CustomerMaster {
@@ -17,8 +21,14 @@ public class CustomerMaster {
 	public String lastName;
 	public String address1;
 	public String address2;
-	public String city;
-	public String state;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cityId", referencedColumnName="cityId")
+	public CityMaster cityId;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "stateId", referencedColumnName="stateId")
+	public StateMaster stateId;
 	public String pin;
 	public String phone;
 	public String email;
@@ -61,18 +71,7 @@ public class CustomerMaster {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
+
 	public String getPin() {
 		return pin;
 	}
@@ -142,23 +141,55 @@ public class CustomerMaster {
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
+	public CityMaster getCityId() {
+		return cityId;
+	}
+	public void setCityId(CityMaster cityId) {
+		this.cityId = cityId;
+	}
+	public StateMaster getStateId() {
+		return stateId;
+	}
+	public void setStateId(StateMaster stateId) {
+		this.stateId = stateId;
+	}
+	
 	@Override
 	public String toString() {
 		return "CustomerMaster [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state=" + state + ", pin="
-				+ pin + ", phone=" + phone + ", email=" + email + ", creditCardType=" + creditCardType
+				+ ", address1=" + address1 + ", address2=" + address2 + ", cityId=" + cityId + ", stateId=" + stateId
+				+ ", pin=" + pin + ", phone=" + phone + ", email=" + email + ", creditCardType=" + creditCardType
 				+ ", drivingLicence=" + drivingLicence + ", dlIssuedBy=" + dlIssuedBy + ", dlValidThrough="
 				+ dlValidThrough + ", passportNumber=" + passportNumber + ", passportIssuedBy=" + passportIssuedBy
-				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + ", getCustomerId()=" + getCustomerId()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getAddress1()="
-				+ getAddress1() + ", getAddress2()=" + getAddress2() + ", getCity()=" + getCity() + ", getState()="
-				+ getState() + ", getPin()=" + getPin() + ", getPhone()=" + getPhone() + ", getEmail()=" + getEmail()
-				+ ", getCreditCardType()=" + getCreditCardType() + ", getDrivingLicence()=" + getDrivingLicence()
-				+ ", getDlIssuedBy()=" + getDlIssuedBy() + ", getDlValidThrough()=" + getDlValidThrough()
-				+ ", getPassportNumber()=" + getPassportNumber() + ", getPassportIssuedBy()=" + getPassportIssuedBy()
-				+ ", getPassportValidUpto()=" + getPassportValidUpto() + ", getDob()=" + getDob() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", passportValidUpto=" + passportValidUpto + ", dob=" + dob + "]";
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(address1, address2, cityId, creditCardType, customerId, dlIssuedBy, dlValidThrough, dob,
+				drivingLicence, email, firstName, lastName, passportIssuedBy, passportNumber, passportValidUpto, phone,
+				pin, stateId);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CustomerMaster other = (CustomerMaster) obj;
+		return Objects.equals(address1, other.address1) && Objects.equals(address2, other.address2)
+				&& Objects.equals(cityId, other.cityId) && Objects.equals(creditCardType, other.creditCardType)
+				&& Objects.equals(customerId, other.customerId) && Objects.equals(dlIssuedBy, other.dlIssuedBy)
+				&& Objects.equals(dlValidThrough, other.dlValidThrough) && Objects.equals(dob, other.dob)
+				&& Objects.equals(drivingLicence, other.drivingLicence) && Objects.equals(email, other.email)
+				&& Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
+				&& Objects.equals(passportIssuedBy, other.passportIssuedBy)
+				&& Objects.equals(passportNumber, other.passportNumber)
+				&& Objects.equals(passportValidUpto, other.passportValidUpto) && Objects.equals(phone, other.phone)
+				&& Objects.equals(pin, other.pin) && Objects.equals(stateId, other.stateId);
+	}
 	
 }

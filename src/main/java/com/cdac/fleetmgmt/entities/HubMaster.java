@@ -12,12 +12,12 @@ import jakarta.persistence.ManyToOne;
 public class HubMaster
 {
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long hubId;
 
 	private long hubId1;
 
-	
 	private String hubName;
 	
 	private String hubAddress;
