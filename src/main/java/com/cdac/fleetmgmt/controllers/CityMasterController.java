@@ -54,5 +54,10 @@ public class CityMasterController {
 	public String deleteCity(@PathVariable Long id) {
 		return cityMasterService.deleteCityById(id);
 	}
+	
+	@GetMapping("/getCityByStateId/{id}")
+	public List<CityMaster>getCityByStateId(@PathVariable Long id){
+		return cityMasterService.getCityByStateId(id);
+	}
 
 }

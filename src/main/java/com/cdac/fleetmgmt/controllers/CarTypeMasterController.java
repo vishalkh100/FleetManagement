@@ -3,6 +3,7 @@ package com.cdac.fleetmgmt.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import com.cdac.fleetmgmt.entities.CarTypeMaster;
 import com.cdac.fleetmgmt.services.CarTypeMasterServiceInterface;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping("CarTypeMaster")
 public class CarTypeMasterController {
 	
@@ -26,12 +28,12 @@ public class CarTypeMasterController {
 		return carTypeMasterServiceInterface.getAllCarTypesByHubId(hubId);
 	}
 	
-	@PostMapping("/post")
+	/*@PostMapping("/addCarType")
 	public String addCarType(@RequestBody CarTypeMaster carTypeMaster)
 		{
 			return carTypeMasterServiceInterface.addCarType(carTypeMaster);
 			
-		}
+		}*/
 	}
 	
 

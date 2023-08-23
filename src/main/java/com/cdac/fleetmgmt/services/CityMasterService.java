@@ -58,6 +58,10 @@ public class CityMasterService {
 		return cityFound;
 
 	}
+	public List<CityMaster>getCityByStateId(Long stateId){
+		List<CityMaster> cityfound=cityMasterRepository.getCityByStateId(stateId);
+		return cityfound;
+	}
 	
 	public String updateCity(CityMaster city) {
 		
