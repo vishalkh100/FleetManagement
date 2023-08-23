@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 public class StateMaster {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long stateId;
 	
 	private String stateName;

@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 public class CityMaster {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long cityId;
 	
 	private String cityName;
