@@ -14,15 +14,15 @@ public class CarTypeMaster {
  	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long carTypeId;
 	
-	private String carTyepName;
+	private String carTypeName;
 	private double dailyRate;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "hubId", referencedColumnName = "hubId")
 	private HubMaster hubId;
 	
-	private double wklyRate;
-	private double mnthRate;
+	private double weeklyRate;
+	private double monthRate;
 	private String imagePath;
 	
 	public long getCarTypeId() {
@@ -31,11 +31,11 @@ public class CarTypeMaster {
 	public void setCarTypeId(long carTypeId) {
 		this.carTypeId = carTypeId;
 	}
-	public String getCarTyepName() {
-		return carTyepName;
+	public String getCarTypeName() {
+		return carTypeName;
 	}
-	public void setCarTyepName(String carTyepName) {
-		this.carTyepName = carTyepName;
+	public void setCarTypeName(String carTypeName) {
+		this.carTypeName = carTypeName;
 	}
 	public double getDailyRate() {
 		return dailyRate;
@@ -49,17 +49,17 @@ public class CarTypeMaster {
 	public void setHubId(HubMaster hubId) {
 		this.hubId = hubId;
 	}
-	public double getWklyRate() {
-		return wklyRate;
+	public double getWeeklyRate() {
+		return weeklyRate;
 	}
-	public void setWklyRate(double wklyRate) {
-		this.wklyRate = wklyRate;
+	public void setWeeklyRate(double weeklyRate) {
+		this.weeklyRate = weeklyRate;
 	}
-	public double getMnthRate() {
-		return mnthRate;
+	public double getMonthRate() {
+		return monthRate;
 	}
-	public void setMnthRate(double mnthRate) {
-		this.mnthRate = mnthRate;
+	public void setMonthRate(double monthRate) {
+		this.monthRate = monthRate;
 	}
 	public String getImagePath() {
 		return imagePath;
@@ -70,9 +70,9 @@ public class CarTypeMaster {
 	
 	@Override
 	public String toString() {
-		return "CarTypeMaster [carTypeId=" + carTypeId + ", carTyepName=" + carTyepName + ", dailyRate=" + dailyRate
-				+ ", hubId=" + hubId + ", wklyRate=" + wklyRate + ", mnthRate=" + mnthRate + ", imagePath=" + imagePath
-				+ "]";
+		return "CarTypeMaster [carTypeId=" + carTypeId + ", carTypeName=" + carTypeName + ", dailyRate=" + dailyRate
+				+ ", hubId=" + hubId + ", weeklyRate=" + weeklyRate + ", monthRate=" + monthRate + ", imagePath="
+				+ imagePath + "]";
 	}
 
 }
