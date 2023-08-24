@@ -1,6 +1,5 @@
  package com.cdac.fleetmgmt.entities;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
@@ -12,16 +11,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class AirportMaster implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class AirportMaster {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long AirporId;
+	
 	private String airportName;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

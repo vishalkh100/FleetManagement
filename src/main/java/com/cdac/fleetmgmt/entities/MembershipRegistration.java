@@ -23,6 +23,7 @@ public class MembershipRegistration {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="carTypeId", referencedColumnName="carTypeId")
     public CarTypeMaster carTypeId;
+	
     public String password;
     
 	public long getMemRegId() {

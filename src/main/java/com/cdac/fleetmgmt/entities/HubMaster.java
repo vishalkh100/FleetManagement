@@ -16,31 +16,21 @@ public class HubMaster
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long hubId;
 
-	private long hubId1;
-
 	private String hubName;
-	
 	private String hubAddress;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cityId", referencedColumnName = "cityId")
 	private CityMaster cityId;
 	
-	private long stateId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "stateId", referencedColumnName = "stateId")
+	private StateMaster stateId;
 	
 	private String hubPhoneNo;
-	
 	private String weekDay;
+	private String openingHours;
 
-	public String openingTime1;
-
-	public String closingTime1;
-
-	private String openingTime;
-	
-	private String closingTime;
-
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getHubId() {
 		return hubId;
 	}
@@ -65,8 +55,6 @@ public class HubMaster
 		this.hubAddress = hubAddress;
 	}
 
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="city_Id", referencedColumnName="cityId")
 	public CityMaster getCityId() {
 		return cityId;
 	}
@@ -75,12 +63,12 @@ public class HubMaster
 		this.cityId = cityId;
 	}
 
-	public long getStateId() {
-		return stateId;
+	public String getOpeningHours() {
+		return openingHours;
 	}
 
-	public void setStateId(long stateId) {
-		this.stateId = stateId;
+	public void setOpeningHours(String openingHours) {
+		this.openingHours = openingHours;
 	}
 
 	public String getHubPhoneNo() {
@@ -98,30 +86,20 @@ public class HubMaster
 	public void setWeekDay(String weekDay) {
 		this.weekDay = weekDay;
 	}
-
-	public String getOpeningTime() {
-		return openingTime1;
+	
+	public StateMaster getStateId() {
+		return stateId;
 	}
 
-	public void setOpeningTime(String openingTime) {
-		this.openingTime1 = openingTime;
-	}
-
-	public String getClosingTime() {
-		return closingTime1;
-	}
-
-	public void setClosingTime(String closingTime) {
-		this.closingTime1 = closingTime;
+	public void setStateId(StateMaster stateId) {
+		this.stateId = stateId;
 	}
 
 	@Override
 	public String toString() {
 		return "HubMaster [hubId=" + hubId + ", hubName=" + hubName + ", hubAddress=" + hubAddress + ", cityId="
 				+ cityId + ", stateId=" + stateId + ", hubPhoneNo=" + hubPhoneNo + ", weekDay=" + weekDay
-				+ ", openingTime=" + openingTime1 + ", closingTime=" + closingTime1 + "]";
+				+ ", openingHours=" + openingHours + "]";
 	}
-	
-	
 
 }

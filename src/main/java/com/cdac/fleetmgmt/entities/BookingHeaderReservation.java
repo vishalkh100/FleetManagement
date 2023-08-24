@@ -15,7 +15,7 @@ import jakarta.persistence.OneToOne;
 public class BookingHeaderReservation {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long bookingId;
 	
 	public Date bookingDate;
@@ -25,14 +25,13 @@ public class BookingHeaderReservation {
 	public CustomerMaster customerId;
 	
 	public Date bookingStartDate;
-
 	
 	public Date bookingEndDate;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "carTypeId", referencedColumnName = "carTypeId")
 	public CarTypeMaster carTypeId;
-
+	
 	public String custDetail;
 
 	public double dailyRate;

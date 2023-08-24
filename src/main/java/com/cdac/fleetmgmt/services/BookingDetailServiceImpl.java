@@ -10,37 +10,27 @@ import com.cdac.fleetmgmt.repository.BookinDetailsRepository;
 
 @Service
 public class BookingDetailServiceImpl implements BookingDetailsService {
-	
-	
-	 @Autowired
-	    private BookinDetailsRepository bookingDetailRepository;
 
-	    @Autowired
-	    private AddOnMasterRepository addonMasterRepository;
+	@Autowired
+	private BookinDetailsRepository bookingDetailRepository;
 
-
-	
-	
+	@Autowired
+	private AddOnMasterRepository addonMasterRepository;
 
 	@Override
 	public void createBookingDetailsWithAddons(Long[] addonIds) {
-	    for (Long addonId : addonIds) {
-            AddOnMaster addonMaster = addonMasterRepository.findById(addonId).orElse(null);
+		for (Long addonId : addonIds) {
+			AddOnMaster addonMaster = addonMasterRepository.findById(addonId).orElse(null);
 
-            if (addonMaster != null) {
-                BookingDetails bookingDetails = new BookingDetails();
-                bookingDetails.setAddonId(addonMaster.getAddOnId());
-                bookingDetails.setAddonRate(addonMaster.getAddOnRate());
-                  bookingDetails.setBookingId(8);
-            //  bookingDetails.setBookingdtalId(101);
-     
+			if (addonMaster != null) {
+				BookingDetails bookingDetails = new BookingDetails();
+				bookingDetails.setAddonId(addonMaster.getAddOnId());
+				bookingDetails.setAddonRate(addonMaster.getAddOnRate());
+				//bookingDetails.setBookingId(8);
 
-                bookingDetailRepository.save(bookingDetails);
-            }
-        }
-    }
-
-		
-	
+				bookingDetailRepository.save(bookingDetails);
+			}
+		}
+	}
 
 }

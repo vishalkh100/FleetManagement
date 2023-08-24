@@ -4,6 +4,8 @@ import java.util.Date;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,15 +14,23 @@ import jakarta.persistence.ManyToOne;
 public class CarMaster {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long carId;
+	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="carTypeId", referencedColumnName="carTypeId")
 	public CarTypeMaster carTypeId;
+	
 	public double carFuelCapacity;
-	public long hubId;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="hubId", referencedColumnName="hubId")
+	public HubMaster hubId;
+	
 	public boolean isAvailable;
 	public Date maintenanceDueDate;
 	public double carCurrentFuleStatus;
+	
 	public long getCarId() {
 		return carId;
 	}
@@ -30,22 +40,14 @@ public class CarMaster {
 	public CarTypeMaster getCarTypeId() {
 		return carTypeId;
 	}
-	
 	public void setCarTypeId(CarTypeMaster carTypeId) {
 		this.carTypeId = carTypeId;
 	}
-	
 	public double getCarFuelCapacity() {
 		return carFuelCapacity;
 	}
 	public void setCarFuelCapacity(double carFuelCapacity) {
 		this.carFuelCapacity = carFuelCapacity;
-	}
-	public long getHubId() {
-		return hubId;
-	}
-	public void setHubId(long hubId) {
-		this.hubId = hubId;
 	}
 	public boolean isAvailable() {
 		return isAvailable;
@@ -65,6 +67,13 @@ public class CarMaster {
 	public void setCarCurrentFuleStatus(double carCurrentFuleStatus) {
 		this.carCurrentFuleStatus = carCurrentFuleStatus;
 	}
+	public HubMaster getHubId() {
+		return hubId;
+	}
+	public void setHubId(HubMaster hubId) {
+		this.hubId = hubId;
+	}
+	
 	@Override
 	public String toString() {
 		return "CarMaster [carId=" + carId + ", carTypeId=" + carTypeId + ", carFuelCapacity=" + carFuelCapacity

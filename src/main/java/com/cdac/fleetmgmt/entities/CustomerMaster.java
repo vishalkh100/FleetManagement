@@ -15,31 +15,32 @@ import jakarta.persistence.ManyToOne;
 public class CustomerMaster {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	public Long customerId;
-	public String firstName;
-	public String lastName;
-	public String address1;
-	public String address2;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long customerId;
+	private String firstName;
+	private String lastName;
+	private String address1;
+	private String address2;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cityId", referencedColumnName="cityId")
-	public CityMaster cityId;
+	private CityMaster cityId;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "stateId", referencedColumnName="stateId")
-	public StateMaster stateId;
-	public String pin;
-	public String phone;
-	public String email;
-	public String creditCardType;
-	public String drivingLicence;
-	public String dlIssuedBy;
-	public Date dlValidThrough;
-	public String passportNumber;
-	public String passportIssuedBy;
-	public Date passportValidUpto;
-	public Date dob;
+	private StateMaster stateId;
+	
+	private String pin;
+	private String phone;
+	private String email;
+	private String creditCardType;
+	private String drivingLicence;
+	private String dlIssuedBy;
+	private Date dlValidThrough;
+	private String passportNumber;
+	private String passportIssuedBy;
+	private Date passportValidUpto;
+	private Date dob;
 	
 	public long getCustomerId() {
 		return customerId;

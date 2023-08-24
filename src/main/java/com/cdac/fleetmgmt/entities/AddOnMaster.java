@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class AddOnMaster 
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     public long addOnId;
 	public String addOnName;
 	public double addOnRate;

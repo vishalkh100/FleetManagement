@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cdac.fleetmgmt.entities.CityMaster;
 import com.cdac.fleetmgmt.entities.HubMaster;
 import com.cdac.fleetmgmt.repository.HubMasterRepository;
 
@@ -37,11 +36,10 @@ public class HubMasterService {
 		if (hubfound.isPresent()) {
 			HubMaster foundhub = hubfound.get();
 			foundhub.setCityId(hub.getCityId());
-			foundhub.setClosingTime(hub.getClosingTime());
+			foundhub.setOpeningHours(hub.getOpeningHours());
 			foundhub.setHubAddress(hub.getHubAddress());
 			foundhub.setHubName(hub.getHubName());
 			foundhub.setHubPhoneNo(hub.getHubPhoneNo());
-			foundhub.setOpeningTime(hub.getOpeningTime());
 			foundhub.setStateId(hub.getStateId());
 			foundhub.setWeekDay(hub.getWeekDay());
 

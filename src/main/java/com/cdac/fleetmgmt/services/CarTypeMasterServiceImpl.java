@@ -6,17 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cdac.fleetmgmt.entities.CarTypeMaster;
-import com.cdac.fleetmgmt.entities.CityMaster;
+import com.cdac.fleetmgmt.entities.HubMaster;
 import com.cdac.fleetmgmt.repository.CarTypeMasterRepository;
+import com.cdac.fleetmgmt.repository.HubMasterRepository;
 @Service
 public class CarTypeMasterServiceImpl implements CarTypeMasterServiceInterface {
 	
 	@Autowired
 	private CarTypeMasterRepository carTypeMasterRepository;
+	
+	@Autowired
+	private HubMasterRepository hubRepo;
 
 	@Override
 	public List<CarTypeMaster>getAllCarTypesByHubId(Long hubId) {
-		return carTypeMasterRepository.findAllByHubId(hubId);
+		
+		HubMaster hub = hubRepo.findById(hubId).get();
+		
+		return carTypeMasterRepository.findAllByHubId(hub);
 	}
 
 	@Override

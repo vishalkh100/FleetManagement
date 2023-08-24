@@ -1,36 +1,36 @@
 package com.cdac.fleetmgmt.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class BookingDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public long bookingdtalId;   
-	public long bookingId;
-	public long addonId;
-    public double addonRate;
-  
-    
-	@Override
-	public String toString() {
-		return "Booking_Detail_Table [bookingdtalId=" + bookingdtalId + ", bookingId=" + bookingId + ", addonId="
-				+ addonId + ", addonRate=" + addonRate + "]";
-	}
+	private long bookingDetailsId;
 	
-    public long getBookingdtalId() {
-		return bookingdtalId;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "bookingId", referencedColumnName="bookingId")
+	private BookingHeaderReservation bookingId;
+	
+	private long addonId;
+	private double addonRate;
+	
+	public long getBookingDetailsId() {
+		return bookingDetailsId;
 	}
-	public void setBookingdtalId(long bookingdtalId) {
-		this.bookingdtalId = bookingdtalId;
+	public void setBookingDetailsId(long bookingDetailsId) {
+		this.bookingDetailsId = bookingDetailsId;
 	}
-	public long getBookingId() {
+	public BookingHeaderReservation getBookingId() {
 		return bookingId;
 	}
-	public void setBookingId(long bookingId) {
+	public void setBookingId(BookingHeaderReservation bookingId) {
 		this.bookingId = bookingId;
 	}
 	public long getAddonId() {
@@ -44,6 +44,12 @@ public class BookingDetails {
 	}
 	public void setAddonRate(double addonRate) {
 		this.addonRate = addonRate;
+	}
+	
+	@Override
+	public String toString() {
+		return "BookingDetails [bookingDetailsId=" + bookingDetailsId + ", bookingId=" + bookingId + ", addonId="
+				+ addonId + ", addonRate=" + addonRate + "]";
 	}
 	
 }

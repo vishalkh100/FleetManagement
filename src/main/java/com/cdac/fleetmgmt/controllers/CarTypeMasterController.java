@@ -15,26 +15,16 @@ import com.cdac.fleetmgmt.entities.CarTypeMaster;
 import com.cdac.fleetmgmt.services.CarTypeMasterServiceInterface;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RequestMapping("CarTypeMaster")
 public class CarTypeMasterController {
-	
+
 	@Autowired
 	CarTypeMasterServiceInterface carTypeMasterServiceInterface;
-	
+
 	@GetMapping("/getAllbyHubId/{hubId}")
-	public List<CarTypeMaster> getAllCarTypesByHubId(@PathVariable Long hubId)
-	{
+	public List<CarTypeMaster> getAllCarTypesByHubId(@PathVariable Long hubId) {
 		return carTypeMasterServiceInterface.getAllCarTypesByHubId(hubId);
 	}
-	
-	/*@PostMapping("/addCarType")
-	public String addCarType(@RequestBody CarTypeMaster carTypeMaster)
-		{
-			return carTypeMasterServiceInterface.addCarType(carTypeMaster);
-			
-		}*/
-	}
-	
 
-
+}

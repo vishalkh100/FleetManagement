@@ -1,25 +1,30 @@
 package com.cdac.fleetmgmt.entities;
-import java.util.List;
-
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class CarTypeMaster {
-
 	
 	@Id
- 	@GeneratedValue(strategy=GenerationType.AUTO)
+ 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long carTypeId;
+	
 	private String carTyepName;
 	private double dailyRate;
-	private long hubId;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "hubId", referencedColumnName = "hubId")
+	private HubMaster hubId;
+	
 	private double wklyRate;
 	private double mnthRate;
 	private String imagePath;
+	
 	public long getCarTypeId() {
 		return carTypeId;
 	}
@@ -38,10 +43,10 @@ public class CarTypeMaster {
 	public void setDailyRate(double dailyRate) {
 		this.dailyRate = dailyRate;
 	}
-	public long getHubId() {
+	public HubMaster getHubId() {
 		return hubId;
 	}
-	public void setHubId(long hubId) {
+	public void setHubId(HubMaster hubId) {
 		this.hubId = hubId;
 	}
 	public double getWklyRate() {
@@ -62,11 +67,13 @@ public class CarTypeMaster {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+	
 	@Override
 	public String toString() {
 		return "CarTypeMaster [carTypeId=" + carTypeId + ", carTyepName=" + carTyepName + ", dailyRate=" + dailyRate
 				+ ", hubId=" + hubId + ", wklyRate=" + wklyRate + ", mnthRate=" + mnthRate + ", imagePath=" + imagePath
 				+ "]";
 	}
+
 }
 	
