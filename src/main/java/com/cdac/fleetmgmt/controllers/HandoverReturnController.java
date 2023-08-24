@@ -3,6 +3,7 @@ package com.cdac.fleetmgmt.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,15 +12,20 @@ import com.cdac.fleetmgmt.entities.InvoiceHeaderTableHandover;
 import com.cdac.fleetmgmt.services.HandoverReturnService;
 
 @RestController
-@RequestMapping("handover")
+@RequestMapping("staff")
 public class HandoverReturnController {
 	
 	@Autowired
 	private HandoverReturnService handoverReturnService;
 	
 	@PostMapping("/handover")
-	public ResponseEntity<InvoiceHeaderTableHandover> handoverCar(HandoverDTO handoverRequest ) {
+	public ResponseEntity<InvoiceHeaderTableHandover> handoverCar(@RequestBody HandoverDTO handoverRequest ) {
 		return handoverReturnService.handover(handoverRequest);
+	}
+	
+	@PostMapping("/return")
+	public ResponseEntity<InvoiceHeaderTableHandover> returnCar(@RequestBody HandoverDTO handoverRequest ) {
+		return handoverReturnService.return(handoverRequest);
 	}
 	
 }

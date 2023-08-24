@@ -27,7 +27,7 @@ public class HandoverDTO {
 	
 	@Override
 	public String toString() {
-		return "HandoverDTO [carId=" + carId + ", fuelStatus=" + fuelStatus + "]";
+		return "HandoverDTO [carId=" + carId + ", fuelStatus=" + fuelStatus + ", bookingId=" + bookingId + "]";
 	}
 	
 }

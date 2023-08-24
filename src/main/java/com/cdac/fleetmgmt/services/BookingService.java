@@ -43,7 +43,7 @@ public class BookingService {
 		bookingToSave.setCarTypeId(carType);
 		bookingToSave.setCustomerId(savedCustomer);
 		
-		double dailyRate = calculateAddOnTotal(booking.getAddOnIds()) + carType.getDailyRate();
+		double dailyRate = calculateAddOnTotal(booking.getAddOnIds());
 		
 		bookingToSave.setDailyRate(dailyRate);
 		bookingToSave.setWklyRate(dailyRate*7);

@@ -40,7 +40,11 @@ public class HandoverReturnService {
 	CarRepository carRepository;
 	
 	public ResponseEntity<InvoiceHeaderTableHandover> handover(HandoverDTO handover) {
+		
+		System.out.println(handover);
+		
 		InvoiceHeaderTableHandover handoverNew = new InvoiceHeaderTableHandover();
+		InvoiceHeaderTableHandover handoverReturn;
 		
 		LocalDateTime now = LocalDateTime.now();  
 		Instant instant = now.atZone(ZoneId.systemDefault()).toInstant();
@@ -56,9 +60,19 @@ public class HandoverReturnService {
 		handoverNew.setHandoverDate(date);
 		handoverNew.setInvoiceDate(date);
 		handoverNew.setInvoiceRate(booking.getDailyRate());
-		handoverNew.setRentalAmt();
+		handoverNew.setRentalAmt(carType.getDailyRate());
+		handoverNew.setReturnDate(booking.getBookingEndDate());
+		handoverNew.setTotalAddonAmt(booking.getDailyRate());
+		handoverNew.setTotalAmt(booking.getDailyRate()+carType.getDailyRate());
 		
-		return new ResponseEntity<InvoiceHeaderTableHandover>(handoverNew, HttpStatus.CREATED);
+		handoverReturn = handoverRepository.save(handoverNew);
+		
+		return new ResponseEntity<InvoiceHeaderTableHandover>(handoverReturn, HttpStatus.CREATED);
+		
+	}
+	
+	public ResponseEntity<InvoiceHeaderTableHandover> returnCar(HandoverDTO handover) {
+		
 	}
 	
 }

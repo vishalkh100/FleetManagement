@@ -47,7 +47,6 @@ public class HubMasterController {
 	@GetMapping("/getHubByCityId/{id}")
 	public List<HubMaster> getHubByCityId(@PathVariable Long id) {
 		return hubMasterService.getHubByCityId(id);
-		
 	}
 	
 }
