@@ -72,7 +72,9 @@ public class HandoverReturnService {
 	}
 	
 	public ResponseEntity<InvoiceHeaderTableHandover> returnCar(HandoverDTO handover) {
+		InvoiceHeaderTableHandover handoverReturn = null;
 		
+		return new ResponseEntity<InvoiceHeaderTableHandover>(handoverReturn, HttpStatus.CREATED);
 	}
 	
 }
