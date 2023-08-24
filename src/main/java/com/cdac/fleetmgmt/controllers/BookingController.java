@@ -24,8 +24,7 @@ public class BookingController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<BookingHeaderReservation> getBookingById(@PathVariable Long id) {
-		// to implement
-		return new ResponseEntity<>(new BookingHeaderReservation(), HttpStatus.OK);
+		return bookingService.getBookingById(id);
 	}
 	
 	@PostMapping("/")

@@ -2,10 +2,14 @@ package com.cdac.fleetmgmt.entities;
 
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -19,13 +23,20 @@ public class InvoiceHeaderTableHandover {
 	@Temporal(TemporalType.DATE)
 	private Date invoiceDate;
 	
-	private long bookingId;
-	private long custId;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "bookingId", referencedColumnName = "bookingId")
+	private BookingHeaderReservation bookingId;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "custId", referencedColumnName = "customerId")
+	private CustomerMaster custId;
 	
 	@Temporal(TemporalType.DATE)
 	private Date handoverDate;
 	
-	private long carId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "carId", referencedColumnName = "carId")
+	private CarMaster carId;
 	
 	@Temporal(TemporalType.DATE)
 	private Date returnDate;
@@ -48,29 +59,12 @@ public class InvoiceHeaderTableHandover {
 	public void setInvoiceDate(Date invoiceDate) {
 		this.invoiceDate = invoiceDate;
 	}
-	public long getBookingId() {
-		return bookingId;
-	}
-	public void setBookingId(long bookingId) {
-		this.bookingId = bookingId;
-	}
-	public long getCustId() {
-		return custId;
-	}
-	public void setCustId(long custId) {
-		this.custId = custId;
-	}
+
 	public Date getHandoverDate() {
 		return handoverDate;
 	}
 	public void setHandoverDate(Date handoverDate) {
 		this.handoverDate = handoverDate;
-	}
-	public long getCarId() {
-		return carId;
-	}
-	public void setCarId(long carId) {
-		this.carId = carId;
 	}
 	public Date getReturnDate() {
 		return returnDate;
@@ -108,15 +102,32 @@ public class InvoiceHeaderTableHandover {
 	public void setInvoiceRate(double invoiceRate) {
 		this.invoiceRate = invoiceRate;
 	}
-
+	public BookingHeaderReservation getBookingId() {
+		return bookingId;
+	}
+	public void setBookingId(BookingHeaderReservation bookingId) {
+		this.bookingId = bookingId;
+	}
+	public CustomerMaster getCustId() {
+		return custId;
+	}
+	public void setCustId(CustomerMaster custId) {
+		this.custId = custId;
+	}
+	public CarMaster getCarId() {
+		return carId;
+	}
+	public void setCarId(CarMaster carId) {
+		this.carId = carId;
+	}
+	
 	@Override
 	public String toString() {
-		return "Invoice_Header_Table_Handover [invoiceId=" + invoiceId + ", invoiceDate=" + invoiceDate + ", bookingId="
+		return "InvoiceHeaderTableHandover [invoiceId=" + invoiceId + ", invoiceDate=" + invoiceDate + ", bookingId="
 				+ bookingId + ", custId=" + custId + ", handoverDate=" + handoverDate + ", carId=" + carId
 				+ ", returnDate=" + returnDate + ", rentalAmt=" + rentalAmt + ", totalAddonAmt=" + totalAddonAmt
 				+ ", totalAmt=" + totalAmt + ", customerDetails=" + customerDetails + ", invoiceRate=" + invoiceRate
 				+ "]";
 	}
-	
 
 }

@@ -46,12 +46,18 @@ public class BookingService {
 		double dailyRate = calculateAddOnTotal(booking.getAddOnIds()) + carType.getDailyRate();
 		
 		bookingToSave.setDailyRate(dailyRate);
-		bookingToSave.setWklyRate(dailyRate*6);
-		bookingToSave.setMnthlyRate(dailyRate*22);
+		bookingToSave.setWklyRate(dailyRate*7);
+		bookingToSave.setMnthlyRate(dailyRate*30);
 		
 		BookingHeaderReservation bookingAdded = bookingRepository.save(bookingToSave);
 		
 		return new ResponseEntity<>(bookingAdded, HttpStatus.CREATED);
+	}
+	
+	public ResponseEntity<BookingHeaderReservation> getBookingById(Long id) {
+		BookingHeaderReservation booking = bookingRepository.findById(id).get();
+		System.out.println(booking);
+		return new ResponseEntity<>(booking, HttpStatus.OK);
 	}
 	
 	public double calculateAddOnTotal(int[] arr) {

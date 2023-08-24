@@ -7,7 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cdac.fleetmgmt.entities.CityMaster;
 import com.cdac.fleetmgmt.entities.HubMaster;
+import com.cdac.fleetmgmt.repository.CityMasterRepository;
 import com.cdac.fleetmgmt.repository.HubMasterRepository;
 
 @Service
@@ -15,6 +17,9 @@ public class HubMasterService {
 
 	@Autowired
 	HubMasterRepository hubMasterRepository;
+	
+	@Autowired
+	CityMasterRepository cityRepo;
 
 	public List<HubMaster> getAllHub() {
 		List<HubMaster> hublist = new ArrayList<>();
@@ -64,8 +69,9 @@ public class HubMasterService {
 	}
 
 	public List<HubMaster> getHubByCityId(Long cityId) {
-		List<HubMaster> hubfound = hubMasterRepository.getHubByCityId(cityId);
-			return hubfound;
+		CityMaster city = cityRepo.findById(cityId).get();
+		List<HubMaster> hubfound = hubMasterRepository.getHubByCityId(city);
+		return hubfound;
 		
 	}
 	

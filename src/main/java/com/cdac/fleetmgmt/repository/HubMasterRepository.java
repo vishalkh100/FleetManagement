@@ -11,7 +11,6 @@ import com.cdac.fleetmgmt.entities.HubMaster;
 
 public interface HubMasterRepository extends JpaRepository<HubMaster,Long> {
 
-	@Query("from HubMaster h where h.cityId.cityId = :cityId")
-	List<HubMaster> getHubByCityId(@Param("cityId") Long cityId);
+	List<HubMaster> getHubByCityId(CityMaster cityId);
 
 }
