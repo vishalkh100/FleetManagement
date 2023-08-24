@@ -25,7 +25,7 @@ public class HandoverReturnController {
 	
 	@PostMapping("/return")
 	public ResponseEntity<InvoiceHeaderTableHandover> returnCar(@RequestBody HandoverDTO handoverRequest ) {
-		return handoverReturnService.return(handoverRequest);
+		return handoverReturnService.returnCar(handoverRequest);
 	}
 	
 }
