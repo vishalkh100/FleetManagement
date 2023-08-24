@@ -11,6 +11,12 @@ public interface AirportMasterService {
 //	void delete(long id);
 //	void update(AirportMaster airport, Long id);
 //	AirportMaster getHubInfoById(Long id);
+
+	List<AirportMaster> getAllAirport();
+
+	Optional<AirportMaster> getAirportByAirportName(String airportName);
+
+	Optional<AirportMaster> getAirportById(Long id);
 	
 	
 }

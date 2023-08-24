@@ -45,7 +45,7 @@ public class HubMasterService {
 			foundhub.setStateId(hub.getStateId());
 			foundhub.setWeekDay(hub.getWeekDay());
 
-			HubMaster hubs = hubMasterRepository.save(foundhub);
+			hubMasterRepository.save(foundhub);
 			return "Hub Updated Successfully";
 		} else {
 			return "Hub with given id not found";
