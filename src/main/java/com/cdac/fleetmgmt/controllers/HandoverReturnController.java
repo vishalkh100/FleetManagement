@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdac.fleetmgmt.dto.HandoverDTO;
+import com.cdac.fleetmgmt.dto.InvoiceReturnDTO;
+import com.cdac.fleetmgmt.dto.InvoiceReturnDTO;
 import com.cdac.fleetmgmt.entities.InvoiceHeaderTableHandover;
 import com.cdac.fleetmgmt.services.HandoverReturnService;
 
@@ -24,7 +26,7 @@ public class HandoverReturnController {
 	}
 	
 	@PostMapping("/return")
-	public ResponseEntity<InvoiceHeaderTableHandover> returnCar(@RequestBody HandoverDTO handoverRequest ) {
+	public ResponseEntity<InvoiceReturnDTO> returnCar(@RequestBody HandoverDTO handoverRequest ) {
 		return handoverReturnService.returnCar(handoverRequest);
 	}
 	
