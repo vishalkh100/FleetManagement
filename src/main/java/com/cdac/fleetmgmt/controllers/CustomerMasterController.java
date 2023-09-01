@@ -42,6 +42,14 @@ public class CustomerMasterController {
 		return customerMasterService.getCustomerById(id);
 	}
 	
+	@GetMapping("/email/{email}")
+
+	public CustomerMaster getCustomerByEmail(@PathVariable String email) {
+		System.out.println(email);
+		return customerMasterService.getCustomeByEmail(email);
+	}
+	
+	
 	@PostMapping("/addcustomer")
 	public String addCustomer(@RequestBody CustomerMaster customer) {
 	

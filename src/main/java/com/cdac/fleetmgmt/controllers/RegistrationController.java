@@ -18,7 +18,7 @@ public class RegistrationController {
 	@Autowired
 	MembershipRegistrationService registrationService;
 	
-	@PostMapping("/")
+	@PostMapping("/addregistration")
 	public ResponseEntity<ResponseObjectDTO> registerCustomer(@RequestBody RegistrationDTO registration) {
 		return registrationService.addMembership(registration);
 	}

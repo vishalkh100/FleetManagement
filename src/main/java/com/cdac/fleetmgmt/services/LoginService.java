@@ -26,14 +26,18 @@ public class LoginService {
 	}
 	
 	public ResponseEntity<CustomerMaster> login(UserLoginDTO user) {
-		MembershipRegistration registration = membershipRegistrationRepository.findById(Long.valueOf(user.getUsername())).get();
-		CustomerMaster cust = null;
-		if(registration.getPassword().equals(user.getPassword())) {
-			cust = registration.getCustomer_id();
-			return new ResponseEntity<CustomerMaster>(cust, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<CustomerMaster>(cust, HttpStatus.FORBIDDEN);
-		}
+		//MembershipRegistration registration = membershipRegistrationRepository.findById(Long.valueOf(user.getUsername())).get();
+		CustomerMaster registration = customerMasterRepository.findById(Long.valueOf(user.getUsername())).get();
+//		CustomerMaster cust = null;
+//		if(registration.getPassword().equals(user.getPassword())) {
+//			cust = registration.getCustomer_id();
+//			return new ResponseEntity<CustomerMaster>(cust, HttpStatus.OK);
+//		} else {
+//			return new ResponseEntity<CustomerMaster>(cust, HttpStatus.FORBIDDEN);
+//		}
+		return new ResponseEntity<CustomerMaster>(HttpStatus.OK);
+		
+		
 		
 		
 	}

@@ -1,12 +1,13 @@
 package com.cdac.fleetmgmt.dto;
 
-import java.io.Serializable;
+
+
 import java.util.Date;
 
-public class RegistrationDTO implements Serializable{
+public class RegistrationDTO {
 	
 	
-	private static final long serialVersionUID = 1L;
+	
 	public String firstName;
 	public String lastName;
 	public String address1;

@@ -43,7 +43,8 @@ public class MembershipRegistrationService {
 		
 		customer.setAddress1(registration.getAddress1());
 		customer.setAddress2(registration.getAddress2());
-		customer.setCityId(cityMasterRepository.findById(Long.valueOf(registration.getCity())).get());
+		//customer.setCityId(cityMasterRepository.findById(Long.valueOf(registration.getCity())).get());
+		customer.setCityId(cityMasterRepository.getById((long) 1));
 		customer.setCreditCardType(registration.getCreditCardType());
 		customer.setDrivingLicence(registration.getDrivingLicence());
 		customer.setDlIssuedBy(registration.getDlIssuedBy());
@@ -54,7 +55,8 @@ public class MembershipRegistrationService {
 		customer.setDob(registration.getDob());
 		customer.setPhone(registration.getPhone());
 		customer.setPin(registration.getPin());
-		customer.setStateId(stateMasterRepository.findById(Long.valueOf(registration.getState())).get());
+		//customer.setStateId(stateMasterRepository.findById(Long.valueOf(registration.getState())).get());
+		customer.setStateId(stateMasterRepository.getById((long)2));
 		customer.setEmail(registration.getEmail());
 		customer.setFirstName(registration.getFirstName());
 		customer.setLastName(registration.getLastName());

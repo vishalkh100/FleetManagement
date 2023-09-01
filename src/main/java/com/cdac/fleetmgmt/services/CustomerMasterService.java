@@ -68,6 +68,12 @@ public class CustomerMasterService {
 
 	}
 	
+	public CustomerMaster getCustomeByEmail(String email)
+	{
+		CustomerMaster customerFound = customerMasterRepository.findByEmail(email);
+		return customerFound;
+	}
+	
 	public String updateCustomer(CustomerMaster customer) {
 
 		CustomerMaster customerFound = customerMasterRepository.getReferenceById(customer.getCustomerId());
